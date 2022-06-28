@@ -3,27 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_u.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmeising <pmeising@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:54:53 by pmeising          #+#    #+#             */
-/*   Updated: 2022/05/24 19:10:28 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/05/25 16:58:06 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdlib.h>
 
-static char	*ft_logic_u(char *str, unsigned int m, int j, int i)
-{
-	while (j >= 0)
-	{
-		str[j] = ((char )((m % 10)) + 48);
-		m = m / 10;
-		j--;
-	}
-	if (i < 0)
-		str[0] = '-';
-	return (str);
-}
+// takes a numerical input, interprets it as unsigned int and converts it to
+// its' Ascii representation.
+// Returns a string.
 
 static char	*ft_zero_case(int n)
 {
@@ -48,6 +40,19 @@ static int	ft_alen_u(unsigned int n)
 		j++;
 	}
 	return (j);
+}
+
+static char	*ft_logic_u(char *str, unsigned int m, int j, int i)
+{
+	while (j >= 0)
+	{
+		str[j] = ((char )((m % 10)) + 48);
+		m = m / 10;
+		j--;
+	}
+	if (i < 0)
+		str[0] = '-';
+	return (str);
 }
 
 char	*ft_itoa_u(unsigned int n)

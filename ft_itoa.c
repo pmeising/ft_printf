@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 16:00:43 by pmeising          #+#    #+#             */
-/*   Updated: 2022/05/23 18:36:32 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/05/25 09:38:16 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ static char	*ft_zero_case(int n)
 	return (str);
 }
 
-static int	ft_alen(int n, int j)
+static int	ft_alen(int n)
 {
+	int	j;
+
+	j = 0;
 	while (n != 0)
 	{
 		n = n / 10;
@@ -67,7 +70,7 @@ char	*ft_itoa(int n)
 	m = n;
 	if (n == 0)
 		return (ft_zero_case(n));
-	j = ft_alen(n, j);
+	j = ft_alen(n);
 	if (m < 0)
 	{
 		j++;
